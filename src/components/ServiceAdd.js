@@ -1,32 +1,24 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addService } from "../actions/actionCreators";
+import { useSelector, useDispatch } from "react-redux";
+import { addService, changeServiceField } from "../actions/actionCreators";
 
 const ServiceAdd = () => {
   const dispatch = useDispatch();
-
-  const defaultForm = {
-    name: "",
-    price: 0,
-  };
-
-  const [form, setForm] = useState(defaultForm);
+  const item = useSelector((state) => state.serviceAdd);
 
   const handleChange = ({ target: { name, value } }) => {
-    if (value) {
-      setForm((prevForm) => ({ ...prevForm, [name]: value }));
-    }
+    dispatch(changeServiceField(name, value));
   };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    dispatch(addService(form.name, form.price));
+    dispatch(addService(item));
+    dispatch(changeServiceField());
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input name="name" onChange={handleChange} value={form.name} />
-      <input name="price" onChange={handleChange} value={form.price} />
+      <input name="name" onChange={handleChange} value={item.name} />
+      <input name="price" onChange={handleChange} value={item.price} />
       <button type="submit">Save</button>
     </form>
   );
