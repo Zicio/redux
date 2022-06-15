@@ -3,6 +3,8 @@ import {
   REMOVE_SERVICE,
   CHANGE_SERVICE_FIELD,
   EDIT_SERVICE,
+  СLEAR_SERVICE_FIELD,
+  SET_SERVICE_FILTER,
 } from "./actionTypes";
 
 export function addService(item) {
@@ -19,4 +21,12 @@ export function changeServiceField(name, value) {
 
 export function editService(item) {
   return { type: EDIT_SERVICE, payload: item };
+}
+
+export function clearServiceField() {
+  return { type: СLEAR_SERVICE_FIELD, payload: null };
+}
+
+export function setServiceFilter(filter) {
+  return { type: SET_SERVICE_FILTER, payload: filter };
 }

@@ -1,3 +1,9 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/1k0j5rq0dnipa5i0?svg=true)](https://ci.appveyor.com/project/Zicio/redux)
+
+[Ссылка на GP](https://zicio.github.io/redux/)
+
+[Ссылка на задание](https://github.com/netology-code/ra16-homeworks/tree/master/redux)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -10,28 +10,22 @@ const serviceListReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_SERVICE:
       const item = action.payload;
+      // Проверка типа операции (изменение/добавление)
       if (!item.id) {
         return [
           ...state,
           { id: uuidv4(), name: item.name, price: Number(item.price) },
         ];
-      } else {
-        const newState = state;
-        const coincidence = newState.findIndex((el) => el.id === item.id);
-        newState[coincidence].name = item.name;
-        newState[coincidence].price = Number(item.price);
-        // state[coincidence] = {
-        //   id: item.id,
-        //   name: item.name,
-        //   price: Number(item.price),
-        // };
-        // const newState = state.splice(coincidence, 1, {
-        //   id: item.id,
-        //   name: item.name,
-        //   price: Number(item.price),
-        // });
-        return newState;
       }
+      return state.map((service) => {
+        if (service.id === item.id) {
+          service.name = item.name;
+          service.price = Number(item.price);
+          return service;
+        }
+        return service;
+      });
+
     case REMOVE_SERVICE:
       const { id } = action.payload;
       return state.filter((service) => service.id !== id);
