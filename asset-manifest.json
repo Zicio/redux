@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/redux/static/js/main.05484c72.js",
+    "static/js/787.61eee022.chunk.js": "/redux/static/js/787.61eee022.chunk.js",
+    "index.html": "/redux/index.html",
+    "main.05484c72.js.map": "/redux/static/js/main.05484c72.js.map",
+    "787.61eee022.chunk.js.map": "/redux/static/js/787.61eee022.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.05484c72.js"
+  ]
+}
